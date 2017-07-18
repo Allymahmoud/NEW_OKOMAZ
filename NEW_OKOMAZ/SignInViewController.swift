@@ -7,26 +7,34 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class SignInViewController: UIViewController {
     
     var returningClientInfo: Client?
+    
+    
+    var ref: DatabaseReference!
 
-    @IBOutlet weak var phoneNumber: UITextField!
+
+    @IBOutlet weak var email: UITextField!
     
     @IBOutlet weak var password: UITextField!
     
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        ref = Database.database().reference(fromURL: "https://okomaz-b3136.firebaseio.com/")
+        
     }
     
-    func createAlert(title: String, message: String){
+    func createAlert(title: String, message: String, actionTitle: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
         }))
         
@@ -41,7 +49,7 @@ class SignInViewController: UIViewController {
 
 
     @IBAction func SignUp(_ sender: Any) {
-        //self.performSegue(withIdentifier: "navFromLogin", sender: nil)
+        self.performSegue(withIdentifier: "navToSignUp", sender: nil)
         
 //        let targetStoryboardName = "SignUpViewController"
 //        let targetStoryboard = UIStoryboard(name: targetStoryboardName, bundle: nil)
@@ -53,31 +61,84 @@ class SignInViewController: UIViewController {
 
     @IBAction func Login(_ sender: Any) {
         
-        if !phoneNumber.hasText{
+        if !email.hasText{
             //pop a notification alert if phone number field is empty
-            createAlert(title: "ERROR!", message: "Phone number field cannot be empty")
+            createAlert(title: "ERROR!", message: "Phone number field cannot be empty", actionTitle: "Cancel")
             
         }
         else if !password.hasText{
             
             //pop a notification alert if password field is empty
-            createAlert(title: "ERROR!", message: "Password field cannot be empty")
-            
+            createAlert(title: "ERROR!", message: "Password field cannot be empty", actionTitle: "Cancel")
             
         }
-        else if phoneNumber.text!.characters.count < 9{
+        else if email.text!.characters.count < 9{
             
             //pop a notification alert if password field is empty
-            createAlert(title: "ERROR!", message: "Invalid phone number")
+            createAlert(title: "ERROR!", message: "Invalid phone number", actionTitle: "Cancel")
             
             
         }
             
         else {
-            let clienTemp = Client(name: "Ally", phoneNumber: phoneNumber.text!, password: password.text!)
+            let clienTemp = Client(name: "Ally", email: email.text!, password: password.text!)
             self.returningClientInfo = clienTemp
             
-            self.performSegue(withIdentifier: "navFromLogin", sender: nil)
+            
+            
+            
+            
+            if self.email.text == "" || self.password.text == "" {
+                
+                //Alert to tell the user that there was an error because they didn't fill anything in the textfields because they didn't fill anything in
+                self.createAlert(title: "Error!", message: "Please enter an email and password", actionTitle: "OK")
+                
+            
+                
+            } else {
+                
+                Auth.auth().signIn(withEmail: self.email.text!, password: self.password.text!) { (user, error) in
+                    
+                    if error == nil {
+                        
+                        if let user = Auth.auth().currentUser {
+                            if !user.isEmailVerified{
+                                let alertVC = UIAlertController(title: "Error", message: "Sorry. Your email address has not yet been verified. Do you want us to send another verification email to \(String(describing: self.email.text)).", preferredStyle: .alert)
+                                let alertActionOkay = UIAlertAction(title: "Okay", style: .default) {
+                                    (_) in
+                                    user.sendEmailVerification(completion: nil)
+                                }
+                                let alertActionCancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                                
+                                alertVC.addAction(alertActionOkay)
+                                alertVC.addAction(alertActionCancel)
+                                self.present(alertVC, animated: true, completion: nil)
+                                
+                            } else {
+                                
+                                //Print into the console if successfully logged in
+                                print ("Email verified. Signing in...")
+                                
+                                //Go to the HomeViewController if the login is sucessful
+                                self.performSegue(withIdentifier: "navFromLogin", sender: nil)
+                            }
+                        }
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    } else {
+                        
+                        //Tells the user that there is an error and then gets firebase to tell them the error
+                        self.createAlert(title: "Error!", message: (error?.localizedDescription)!, actionTitle: "OK")
+                        
+                        
+                    }
+                }
+            }
             
             
             

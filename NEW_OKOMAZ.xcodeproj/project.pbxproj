@@ -26,7 +26,10 @@
 		A003250E1F1D1FBF00930E02 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A003250D1F1D1FBF00930E02 /* SettingsViewController.storyboard */; };
 		A00325101F1D201800930E02 /* ServicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A003250F1F1D201800930E02 /* ServicesTableViewController.swift */; };
 		A00325121F1D4E5000930E02 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00325111F1D4E5000930E02 /* Client.swift */; };
-		A00325141F1D61FF00930E02 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A00325131F1D61FF00930E02 /* GoogleService-Info.plist */; };
+		A003D6641F1E146A0011B3C4 /* mainConfigureAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A003D6631F1E146A0011B3C4 /* mainConfigureAccountViewController.swift */; };
+		A003D6661F1E148A0011B3C4 /* memberConfigureAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A003D6651F1E148A0011B3C4 /* memberConfigureAccountViewController.swift */; };
+		A003D6921F1E68850011B3C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A003D6911F1E68850011B3C4 /* GoogleService-Info.plist */; };
+		A003D6941F1ECB280011B3C4 /* ServicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A003D6931F1ECB280011B3C4 /* ServicesTableViewCell.swift */; };
 		D022CF79CC511E560D4E1C5B /* Pods_NEW_OKOMAZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4024B1413B0E41FC4335590A /* Pods_NEW_OKOMAZ.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +57,10 @@
 		A003250D1F1D1FBF00930E02 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 		A003250F1F1D201800930E02 /* ServicesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesTableViewController.swift; sourceTree = "<group>"; };
 		A00325111F1D4E5000930E02 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		A00325131F1D61FF00930E02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A003D6631F1E146A0011B3C4 /* mainConfigureAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainConfigureAccountViewController.swift; sourceTree = "<group>"; };
+		A003D6651F1E148A0011B3C4 /* memberConfigureAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = memberConfigureAccountViewController.swift; sourceTree = "<group>"; };
+		A003D6911F1E68850011B3C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A003D6931F1ECB280011B3C4 /* ServicesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesTableViewCell.swift; sourceTree = "<group>"; };
 		E499D91DE1C3743B409B29A2 /* Pods-NEW_OKOMAZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEW_OKOMAZ.release.xcconfig"; path = "Pods/Target Support Files/Pods-NEW_OKOMAZ/Pods-NEW_OKOMAZ.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,7 +93,7 @@
 				A00324E41F1D102B00930E02 /* Assets.xcassets */,
 				A00324E61F1D102B00930E02 /* LaunchScreen.storyboard */,
 				A00324E91F1D102B00930E02 /* Info.plist */,
-				A00325131F1D61FF00930E02 /* GoogleService-Info.plist */,
+				A003D6911F1E68850011B3C4 /* GoogleService-Info.plist */,
 				A00324EF1F1D107D00930E02 /* SignIn */,
 				A00324DC1F1D102B00930E02 /* SignUp */,
 				A00324F21F1D118900930E02 /* MyAccount */,
@@ -131,8 +137,10 @@
 		A00324F21F1D118900930E02 /* MyAccount */ = {
 			isa = PBXGroup;
 			children = (
-				A00324FB1F1D1D9200930E02 /* MyAccountViewController.swift */,
 				A00324FD1F1D1DA900930E02 /* MyAccountViewController.storyboard */,
+				A00324FB1F1D1D9200930E02 /* MyAccountViewController.swift */,
+				A003D6631F1E146A0011B3C4 /* mainConfigureAccountViewController.swift */,
+				A003D6651F1E148A0011B3C4 /* memberConfigureAccountViewController.swift */,
 			);
 			name = MyAccount;
 			sourceTree = "<group>";
@@ -143,6 +151,7 @@
 				A00324FF1F1D1DFF00930E02 /* ServicesViewController.storyboard */,
 				A00325011F1D1E1500930E02 /* ServicesViewController.swift */,
 				A003250F1F1D201800930E02 /* ServicesTableViewController.swift */,
+				A003D6931F1ECB280011B3C4 /* ServicesTableViewCell.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -252,7 +261,7 @@
 				A00325061F1D1E3800930E02 /* AuthenticationViewController.storyboard in Resources */,
 				A00325001F1D1DFF00930E02 /* ServicesViewController.storyboard in Resources */,
 				A00324E31F1D102B00930E02 /* Main.storyboard in Resources */,
-				A00325141F1D61FF00930E02 /* GoogleService-Info.plist in Resources */,
+				A003D6921F1E68850011B3C4 /* GoogleService-Info.plist in Resources */,
 				A003250E1F1D1FBF00930E02 /* SettingsViewController.storyboard in Resources */,
 				A00324FE1F1D1DA900930E02 /* MyAccountViewController.storyboard in Resources */,
 			);
@@ -320,9 +329,12 @@
 				A00325041F1D1E2800930E02 /* AuthenticationViewController.swift in Sources */,
 				A00324FA1F1D137400930E02 /* SignUpViewController.swift in Sources */,
 				A00325081F1D1EFB00930E02 /* ChatPortViewController.swift in Sources */,
+				A003D6661F1E148A0011B3C4 /* memberConfigureAccountViewController.swift in Sources */,
+				A003D6941F1ECB280011B3C4 /* ServicesTableViewCell.swift in Sources */,
 				A00325101F1D201800930E02 /* ServicesTableViewController.swift in Sources */,
 				A00325121F1D4E5000930E02 /* Client.swift in Sources */,
 				A003250C1F1D1F6E00930E02 /* ChatChannelTableViewController.swift in Sources */,
+				A003D6641F1E146A0011B3C4 /* mainConfigureAccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

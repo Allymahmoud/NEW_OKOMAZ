@@ -13,7 +13,7 @@
         <!--SignUpViewController-->
         <scene sceneID="A8n-mV-hgk">
             <objects>
-                <viewController storyboardIdentifier="SignUpViewStoryboard" id="zeq-9C-spF" userLabel="SignUpViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewStoryboard" id="zeq-9C-spF" userLabel="SignUpViewController" customClass="SignUpViewController" customModule="NEW_OKOMAZ" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eTo-sf-vS4"/>
                         <viewControllerLayoutGuide type="bottom" id="0DN-oC-DhN"/>
@@ -35,7 +35,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Eg: 0656346557" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hWQ-0v-8J7">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hWQ-0v-8J7">
                                         <rect key="frame" x="58" y="72" width="190" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="190" id="Ofb-oE-Dpb"/>
@@ -45,7 +45,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad"/>
                                     </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_phone" translatesAutoresizingMaskIntoConstraints="NO" id="zKN-ou-LiE">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_email" translatesAutoresizingMaskIntoConstraints="NO" id="zKN-ou-LiE">
                                         <rect key="frame" x="13" y="72" width="31" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="wZP-4g-Z4D"/>
@@ -143,6 +143,9 @@
                                     <constraint firstAttribute="width" constant="55" id="UDy-DF-bO2"/>
                                 </constraints>
                                 <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="Signup:" destination="zeq-9C-spF" eventType="touchUpInside" id="bOj-bD-RuG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.55841466890000002" green="0.79836899039999998" blue="0.70300974220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -158,6 +161,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="clientEmail" destination="hWQ-0v-8J7" id="gBO-ie-zfe"/>
+                        <outlet property="clientName" destination="01M-hc-bYw" id="6G6-1D-ylD"/>
+                        <outlet property="clientPassword" destination="ZIU-Ks-uX5" id="Y5l-lv-cxE"/>
+                        <outlet property="clientVerifyPassword" destination="XgM-Lp-Gee" id="OGt-Tb-8a0"/>
                         <segue destination="NKE-yi-M0j" kind="show" identifier="navFromSignUp" id="0g5-1z-qH2"/>
                     </connections>
                 </viewController>
@@ -165,10 +172,10 @@
             </objects>
             <point key="canvasLocation" x="-602" y="-208"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--Main-->
         <scene sceneID="82f-wb-bDW">
             <objects>
-                <viewControllerPlaceholder id="NKE-yi-M0j" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="Main" storyboardName="Main" id="NKE-yi-M0j" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iNk-Zh-UKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="303" y="-207"/>
@@ -176,7 +183,7 @@
     </scenes>
     <resources>
         <image name="ic_account_circle" width="24" height="24"/>
+        <image name="ic_email" width="24" height="24"/>
         <image name="ic_lock_outline" width="24" height="24"/>
-        <image name="ic_phone" width="24" height="24"/>
     </resources>
 </document>

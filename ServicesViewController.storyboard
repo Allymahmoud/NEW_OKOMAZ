@@ -6,25 +6,86 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Services Table View Controller-->
         <scene sceneID="Bcb-lh-g1W">
             <objects>
-                <tableViewController id="Tav-pc-KHr" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="23j-Lg-zhO">
+                <tableViewController id="Tav-pc-KHr" customClass="ServicesTableViewController" customModule="NEW_OKOMAZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" id="23j-Lg-zhO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qeD-w3-dXd">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="serviceViewCell" rowHeight="104" id="qeD-w3-dXd" customClass="ServicesTableViewCell" customModule="NEW_OKOMAZ" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qeD-w3-dXd" id="6J8-G4-4lS">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="103.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7q-j8-t85">
+                                            <rect key="frame" x="288" y="38" width="74" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="12" id="B3N-wH-nzL"/>
+                                                <constraint firstAttribute="width" constant="74" id="CFW-cC-Gwd"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="12" id="c4F-Jp-Uwe"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="8"/>
+                                            <color key="textColor" red="0.4271170661" green="0.4271170661" blue="0.4271170661" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pj3-zr-cAZ">
+                                            <rect key="frame" x="288" y="50" width="74" height="10"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="74" id="fcJ-oW-mgo"/>
+                                                <constraint firstAttribute="height" constant="10" id="y6s-wA-O1I"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="8"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65p-lq-XIc">
+                                            <rect key="frame" x="98" y="33" width="169" height="27"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="27" id="86t-ah-cU5"/>
+                                                <constraint firstAttribute="width" constant="169" id="cHG-Yg-bYI"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <size key="titleShadowOffset" width="1" height="1"/>
+                                            <state key="normal" title="Button"/>
+                                        </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MissedPickup" translatesAutoresizingMaskIntoConstraints="NO" id="GZV-Oy-PQa">
+                                            <rect key="frame" x="13" y="26" width="51" height="51"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="51" id="PEC-YL-Qhh"/>
+                                                <constraint firstAttribute="height" constant="51" id="Rgr-JI-taG"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="s7q-j8-t85" firstAttribute="leading" secondItem="65p-lq-XIc" secondAttribute="trailing" constant="21" id="5pv-fc-UsR"/>
+                                        <constraint firstItem="Pj3-zr-cAZ" firstAttribute="top" secondItem="s7q-j8-t85" secondAttribute="bottom" id="6lI-Mt-wI4"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="s7q-j8-t85" secondAttribute="trailing" constant="5" id="BCW-wW-v6i"/>
+                                        <constraint firstItem="s7q-j8-t85" firstAttribute="top" secondItem="6J8-G4-4lS" secondAttribute="topMargin" constant="30" id="F8C-RJ-ck4"/>
+                                        <constraint firstItem="s7q-j8-t85" firstAttribute="leading" secondItem="Pj3-zr-cAZ" secondAttribute="leading" id="HsM-hQ-BUI"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="GZV-Oy-PQa" secondAttribute="bottom" constant="18.5" id="Srh-5g-JKv"/>
+                                        <constraint firstItem="65p-lq-XIc" firstAttribute="bottom" secondItem="Pj3-zr-cAZ" secondAttribute="bottom" id="a5J-bn-y0N"/>
+                                        <constraint firstItem="GZV-Oy-PQa" firstAttribute="top" secondItem="6J8-G4-4lS" secondAttribute="topMargin" constant="18" id="iYt-aL-X2C"/>
+                                        <constraint firstItem="65p-lq-XIc" firstAttribute="leading" secondItem="6J8-G4-4lS" secondAttribute="leadingMargin" constant="90" id="k8q-1U-Ouf"/>
+                                        <constraint firstItem="s7q-j8-t85" firstAttribute="trailing" secondItem="Pj3-zr-cAZ" secondAttribute="trailing" id="sDy-0u-SM5"/>
+                                        <constraint firstItem="GZV-Oy-PQa" firstAttribute="leading" secondItem="6J8-G4-4lS" secondAttribute="leadingMargin" constant="5" id="yOM-Rr-xvE"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.55841466890000002" green="0.79836899039999998" blue="0.70300974220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="date" destination="Pj3-zr-cAZ" id="ocW-0W-Icw"/>
+                                    <outlet property="datedescription" destination="s7q-j8-t85" id="aCn-BF-eZX"/>
+                                    <outlet property="serviceButton" destination="65p-lq-XIc" id="9aZ-KD-EzN"/>
+                                    <outlet property="servicePicture" destination="GZV-Oy-PQa" id="8Xw-EN-Fgb"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -35,7 +96,10 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CSJ-7w-Ynl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="178"/>
+            <point key="canvasLocation" x="136.80000000000001" y="177.66116941529236"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MissedPickup" width="200" height="200"/>
+    </resources>
 </document>

@@ -268,18 +268,39 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="qss-Uy-Fb7" kind="show" identifier="navToAccountConfigurationMember" id="FxY-Hj-uAY"/>
-                        <segue destination="EmT-k2-bBu" kind="show" identifier="navToAccountConfiguration" id="7Dx-sQ-OrF"/>
+                        <outlet property="Country" destination="pJQ-9K-EXE" id="cTG-9b-QAv"/>
+                        <outlet property="House" destination="rd7-C7-nES" id="EkV-Gz-EEf"/>
+                        <outlet property="Phone" destination="Q45-uU-gfc" id="WoZ-hl-TbU"/>
+                        <outlet property="PickupInfoTextField" destination="0Oz-Pw-gwM" id="Ira-RA-czB"/>
+                        <outlet property="Region" destination="ZpR-dV-mER" id="YfG-i5-whR"/>
+                        <outlet property="Role" destination="EwY-Kz-ShH" id="fdp-fg-SLE"/>
+                        <outlet property="StaticCountryField" destination="qVY-LY-LA5" id="Jwl-80-3dA"/>
+                        <outlet property="StaticHouseField" destination="FdN-31-wEI" id="8Hm-b8-IyH"/>
+                        <outlet property="StaticNextPickupField" destination="b2N-9Y-R91" id="QTh-kj-A2p"/>
+                        <outlet property="StaticPhoneField" destination="fl8-2r-bWN" id="pZw-3w-atc"/>
+                        <outlet property="StaticRegionField" destination="R0t-rV-WAF" id="ONR-LY-RQw"/>
+                        <outlet property="StaticRole" destination="kOw-Ws-6f2" id="3D0-af-7xZ"/>
+                        <outlet property="StaticStreetField" destination="cpd-Q9-d6A" id="UBe-7K-QBe"/>
+                        <outlet property="Street" destination="PL4-uM-3zM" id="xt9-1v-x4E"/>
+                        <outlet property="addressTextField" destination="xJn-Ao-kUB" id="F1L-zq-ecO"/>
+                        <outlet property="clientName" destination="Txh-y4-BeC" id="6AD-Jd-dRz"/>
+                        <outlet property="clientProfilePicture" destination="fHC-PO-t0S" id="QOV-SC-5lU"/>
+                        <outlet property="configureAccountMain" destination="ksX-A6-h8k" id="wKx-Jj-NYA"/>
+                        <outlet property="configureAccountMember" destination="bn1-CS-WT4" id="eIk-To-oRo"/>
+                        <outlet property="imageEditButton" destination="SqI-BZ-wqI" id="mqx-8m-8h8"/>
+                        <outlet property="nextPickupInfo" destination="RaW-mC-P21" id="9qJ-T2-Dhb"/>
+                        <segue destination="ZYP-m4-oux" kind="show" identifier="navToAccountConfigurationMember" id="FxY-Hj-uAY"/>
+                        <segue destination="mdo-yG-Eic" kind="show" identifier="navToAccountConfiguration" id="7Dx-sQ-OrF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kUx-dg-cRI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="22" y="109"/>
         </scene>
-        <!--View Controller-->
+        <!--Member Configure Account View Controller-->
         <scene sceneID="IxE-ea-aUd">
             <objects>
-                <viewController id="qss-Uy-Fb7" sceneMemberID="viewController">
+                <viewController id="qss-Uy-Fb7" customClass="memberConfigureAccountViewController" customModule="NEW_OKOMAZ" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="beT-NM-OVH"/>
                         <viewControllerLayoutGuide type="bottom" id="Mwx-ee-AfH"/>
@@ -289,15 +310,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="p7O-nq-Sda"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vTJ-57-lHP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="845" y="-65"/>
+            <point key="canvasLocation" x="1783.2" y="-65.217391304347828"/>
         </scene>
-        <!--View Controller-->
+        <!--Main Configure Account View Controller-->
         <scene sceneID="vPN-BS-Ao3">
             <objects>
-                <viewController id="EmT-k2-bBu" sceneMemberID="viewController">
+                <viewController id="EmT-k2-bBu" customClass="mainConfigureAccountViewController" customModule="NEW_OKOMAZ" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pfz-vQ-dXQ"/>
                         <viewControllerLayoutGuide type="bottom" id="T4G-Rh-C3T"/>
@@ -307,10 +329,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="bjp-Of-YDn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4f-Ze-lTQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="844" y="648"/>
+            <point key="canvasLocation" x="1783.2" y="647.22638680659679"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yhv-Os-Gwm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZYP-m4-oux" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="02E-Ti-jyJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qss-Uy-Fb7" kind="relationship" relationship="rootViewController" id="bHm-3U-vlj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mvs-xX-A1s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="844" y="-65.217391304347828"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eS7-N2-yyq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mdo-yG-Eic" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZTQ-8a-h9k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EmT-k2-bBu" kind="relationship" relationship="rootViewController" id="mAn-Iq-lwR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sic-ae-0mt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="844" y="647.22638680659679"/>
         </scene>
     </scenes>
     <resources>

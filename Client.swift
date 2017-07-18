@@ -15,6 +15,7 @@ class Client{
     //core varibles
     var name: String?
     var phoneNumber: String?
+    var email:String?
     var password: String?
     
     //address variables
@@ -73,9 +74,10 @@ class Client{
         
     }
     
-    init(name: String, phoneNumber: String, password: String) {
+    init(name: String, email: String, password: String) {
         self.name = name
-        self.phoneNumber = phoneNumber
+        self.phoneNumber = ""
+        self.email = email
         self.password = password
         
         self.houseNumber = ""

@@ -10,6 +10,11 @@ import UIKit
 
 class ServicesTableViewController: UITableViewController {
 
+    
+    
+    var listOfServices = ["Schedule a Pickup","Report Missed Pickup","New Products","Need Help?","Talk To Us","About Us"]
+    var listofimageServices = ["SchedulePickup.png","MissedPickup.png", "NewProducts.png", "NeedHelp.png", "TalkToUs.png","AboutUs.png"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,23 +34,52 @@ class ServicesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.listofimageServices.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "serviceViewCell", for: indexPath) as! ServicesTableViewCell
+        
         // Configure the cell...
+        
+        //        cell.textLabel?.text = activities[indexPath.row].name
+        //        cell.detailTextLabel?.text = activities[indexPath.row].description
+        
+        
+        
+        cell.serviceButton.setTitle(listOfServices[indexPath.row], for: UIControlState.normal)
+        cell.serviceButton.setTitleColor(UIColor.black, for: UIControlState.normal)
+        cell.serviceButton.layer.borderColor = UIColor.black.cgColor
+        cell.serviceButton.layer.cornerRadius = 5
+        cell.serviceButton.layer.borderWidth = 1
+        cell.serviceButton.center.x = self.view.center.x
+        cell.serviceButton.titleLabel!.font = UIFont(name: "Avenir", size: 15)
+        
+        if listOfServices[indexPath.row] == "Schedule a Pickup"{
+            cell.datedescription.isHidden = false
+            cell.datedescription.isHidden = false
+            
+            cell.datedescription.text = "Next pick up date"
+            cell.date.text = "20-07-2017"
+        }
+        else{
+            cell.datedescription.isHidden = true
+            cell.date.isHidden = true
+        }
+        
+        
+        
+        cell.servicePicture.image = UIImage(named: listofimageServices[indexPath.row])
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -25,7 +25,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Se-q2-1OP">
                                 <rect key="frame" x="56" y="289" width="263" height="127"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Eg: 0656346557" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WwS-fV-cJR">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WwS-fV-cJR">
                                         <rect key="frame" x="58" y="22" width="190" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="190" id="BjE-xg-M1q"/>
@@ -52,7 +52,7 @@
                                             <constraint firstAttribute="height" constant="30" id="TpM-uX-Zr4"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_phone" translatesAutoresizingMaskIntoConstraints="NO" id="9so-1d-grr">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_email" translatesAutoresizingMaskIntoConstraints="NO" id="9so-1d-grr">
                                         <rect key="frame" x="13" y="22" width="31" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="31" id="0hW-H0-E3H"/>
@@ -130,7 +130,6 @@
                                         <state key="normal" title="Sign up"/>
                                         <connections>
                                             <action selector="SignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Lu-1y-cRW"/>
-                                            <segue destination="fDo-yd-flV" kind="show" id="SA2-Z9-cjj"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -156,9 +155,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="email" destination="WwS-fV-cJR" id="ssx-q3-Fng"/>
                         <outlet property="password" destination="01d-gZ-VcR" id="zuE-K5-Hbq"/>
-                        <outlet property="phoneNumber" destination="WwS-fV-cJR" id="7wX-Sa-U6N"/>
                         <segue destination="9L7-Vv-ZVM" kind="show" identifier="navFromLogin" id="Hmp-rF-4Ge"/>
+                        <segue destination="DAt-zh-58M" kind="show" identifier="navToSignUp" id="CEC-5H-lnw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -240,10 +240,12 @@
         <!--SignUp Storyboard Reference Scene-->
         <scene sceneID="SYW-Gz-O6D">
             <objects>
-                <viewControllerPlaceholder storyboardName="SignUpViewController" id="fDo-yd-flV" userLabel="SignUp Storyboard Reference Scene" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="SignUpViewController" id="fDo-yd-flV" userLabel="SignUp Storyboard Reference Scene" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4V8-36-zko"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WUy-Ls-WRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="324" y="551"/>
+            <point key="canvasLocation" x="963" y="951"/>
         </scene>
         <!--My Account-->
         <scene sceneID="fPd-IZ-hgN">
@@ -306,7 +308,7 @@
         <scene sceneID="wkH-YQ-Nzx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YIR-AS-FZQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chat" id="uTD-kK-Ccb"/>
+                    <tabBarItem key="tabBarItem" title="Chat" image="ic_chat" id="uTD-kK-Ccb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DU8-Q1-ZOR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -340,11 +342,30 @@
             </objects>
             <point key="canvasLocation" x="2092" y="1391"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="siI-Bs-9sq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DAt-zh-58M" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EbX-l2-VbX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fDo-yd-flV" kind="relationship" relationship="rootViewController" id="5tO-ya-BAW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CSU-kx-G0J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="215" y="952"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_account_circle" width="24" height="24"/>
+        <image name="ic_chat" width="24" height="24"/>
+        <image name="ic_email" width="24" height="24"/>
         <image name="ic_lock_outline" width="24" height="24"/>
-        <image name="ic_phone" width="24" height="24"/>
         <image name="ic_security" width="24" height="24"/>
         <image name="ic_settings" width="24" height="24"/>
         <image name="ic_transfer_within_a_station" width="24" height="24"/>
