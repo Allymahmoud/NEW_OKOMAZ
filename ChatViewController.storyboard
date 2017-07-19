@@ -1,41 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WBz-Zy-A7D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zp2-e7-CDe">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
-        <scene sceneID="dIL-d3-VO5">
+        <!--Chat Channel Table View Controller-->
+        <scene sceneID="KQS-FE-yuB">
             <objects>
-                <tableViewController id="WBz-Zy-A7D" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="0X5-Sb-OCR">
+                <tableViewController id="zp2-e7-CDe" customClass="ChatChannelTableViewController" customModule="NEW_OKOMAZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="KCa-CG-UuW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="serviceViewCell" id="wam-Za-xuo">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewChannel" id="wTQ-Do-CvS" customClass="CreateChannelCell" customModule="NEW_OKOMAZ" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wam-Za-xuo" id="0P1-Ju-ucZ">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wTQ-Do-CvS" id="OMk-ge-vVx">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create a New Channel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="epQ-mS-qUX">
+                                            <rect key="frame" x="16" y="7" width="297" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Szw-p6-ucv">
+                                            <rect key="frame" x="321" y="7" width="46" height="30"/>
+                                            <state key="normal" title="Create"/>
+                                            <connections>
+                                                <action selector="CreateChannel:" destination="zp2-e7-CDe" eventType="touchUpInside" id="sjO-R2-Dkd"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="epQ-mS-qUX" firstAttribute="leading" secondItem="OMk-ge-vVx" secondAttribute="leadingMargin" constant="8" id="7qg-Cx-oSm"/>
+                                        <constraint firstItem="Szw-p6-ucv" firstAttribute="centerY" secondItem="OMk-ge-vVx" secondAttribute="centerY" id="9Q6-2n-0Bq"/>
+                                        <constraint firstItem="epQ-mS-qUX" firstAttribute="centerY" secondItem="OMk-ge-vVx" secondAttribute="centerY" id="Aiq-0N-mtp"/>
+                                        <constraint firstItem="Szw-p6-ucv" firstAttribute="leading" secondItem="epQ-mS-qUX" secondAttribute="trailing" constant="8" id="QBn-jj-tbb"/>
+                                        <constraint firstItem="Szw-p6-ucv" firstAttribute="leading" secondItem="epQ-mS-qUX" secondAttribute="trailing" constant="8" id="XY7-If-P5Z"/>
+                                        <constraint firstItem="Szw-p6-ucv" firstAttribute="trailing" secondItem="OMk-ge-vVx" secondAttribute="trailingMargin" id="cZz-Ze-pfA"/>
+                                        <constraint firstItem="Szw-p6-ucv" firstAttribute="leading" secondItem="epQ-mS-qUX" secondAttribute="trailing" constant="8" id="gAe-Tg-n3F"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="QBn-jj-tbb"/>
+                                            <exclude reference="gAe-Tg-n3F"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="createChannelButton" destination="Szw-p6-ucv" id="Cp9-68-h6y"/>
+                                    <outlet property="newChannelNameField" destination="epQ-mS-qUX" id="Ood-VK-5rh"/>
+                                    <segue destination="ISP-yQ-ttm" kind="show" identifier="ShowChannel" id="XKZ-nb-zXe"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExistingChannel" textLabel="ydg-1f-hax" style="IBUITableViewCellStyleDefault" id="0PB-oT-04c">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0PB-oT-04c" id="r6T-Va-KYI">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ydg-1f-hax">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="WBz-Zy-A7D" id="wAe-ph-WUI"/>
-                            <outlet property="delegate" destination="WBz-Zy-A7D" id="4np-S1-niO"/>
+                            <outlet property="dataSource" destination="zp2-e7-CDe" id="dHk-2E-2zK"/>
+                            <outlet property="delegate" destination="zp2-e7-CDe" id="Mf0-Wg-Ih7"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="wmz-JI-F42"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4U8-u7-x7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eBj-Su-Ntb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65" y="152"/>
+            <point key="canvasLocation" x="-4154" y="-700"/>
+        </scene>
+        <!--Chat Port View Controller-->
+        <scene sceneID="Ei7-Qg-D4b">
+            <objects>
+                <viewController id="ISP-yQ-ttm" customClass="ChatPortViewController" customModule="NEW_OKOMAZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dgg-a0-h98"/>
+                        <viewControllerLayoutGuide type="bottom" id="MJp-kb-NzM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pqk-v4-eBD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3F9-xE-2c6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="89H-0i-wez" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3060" y="-690"/>
         </scene>
     </scenes>
 </document>
