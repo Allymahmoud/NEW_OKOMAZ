@@ -93,7 +93,7 @@
         <!--Chat Port View Controller-->
         <scene sceneID="Ei7-Qg-D4b">
             <objects>
-                <viewController id="ISP-yQ-ttm" customClass="ChatPortViewController" customModule="NEW_OKOMAZ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="ISP-yQ-ttm" customClass="ChatPortViewController" customModule="NEW_OKOMAZ" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dgg-a0-h98"/>
                         <viewControllerLayoutGuide type="bottom" id="MJp-kb-NzM"/>

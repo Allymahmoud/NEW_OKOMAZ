@@ -40,7 +40,7 @@ class ChatPortViewController: JSQMessagesViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       self.tabBarController?.tabBar.isHidden = true
+       
         self.senderId = Auth.auth().currentUser?.email
         
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
