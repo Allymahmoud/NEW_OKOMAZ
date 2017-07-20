@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import Firebase
 
 class ServicesTableViewController: UITableViewController {
 
-    
+    var ref: DatabaseReference!
     
     var listOfServices = ["Schedule a Pickup","Report Missed Pickup","New Products","Need Help?","Talk To Us","About Us"]
     var listofimageServices = ["SchedulePickup.png","MissedPickup.png", "NewProducts.png", "NeedHelp.png", "TalkToUs.png","AboutUs.png"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference(fromURL: "https://okomaz-b3136.firebaseio.com/")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -24,7 +27,10 @@ class ServicesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -66,7 +72,8 @@ class ServicesTableViewController: UITableViewController {
             cell.datedescription.isHidden = false
             
             cell.datedescription.text = "Next pick up date"
-            cell.date.text = "20-07-2017"
+            cell.date.text = self.fetchNextPickupDate()
+            
         }
         else{
             cell.datedescription.isHidden = true
@@ -79,6 +86,43 @@ class ServicesTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override  func tableView(_ tableView: UITableView, didSelectRowAt
+        indexPath: IndexPath){
+        
+        if indexPath.row == 0{
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PickUp")
+            self.navigationController?.pushViewController(vc!, animated: true)
+            
+        }
+        
+        
+    
+ 
+        
+        
+    }
+    
+    func fetchNextPickupDate()->String {
+        
+        var returndate: String = ""
+        let userID = Auth.auth().currentUser?.uid
+        self.ref.child("users").child(userID!).observe(.childAdded, with: { snapshot in
+            
+            if let value = snapshot.value as? NSDictionary {
+                
+                print (value)
+                print("Date: " + (value["nextPickupDate"] as! String))
+                
+                returndate = (value["nextPickupDate"] as! String)
+                
+            }
+            
+        })
+        return returndate
+    }
+    
+    
     
 
     /*
