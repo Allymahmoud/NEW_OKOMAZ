@@ -12,6 +12,7 @@ import Firebase
 class ServicesTableViewController: UITableViewController {
 
     var ref: DatabaseReference!
+    var pickupdate: String = String()
     
     var listOfServices = ["Schedule a Pickup","Report Missed Pickup","New Products","Need Help?","Talk To Us","About Us"]
     var listofimageServices = ["SchedulePickup.png","MissedPickup.png", "NewProducts.png", "NeedHelp.png", "TalkToUs.png","AboutUs.png"]
@@ -29,6 +30,10 @@ class ServicesTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print(self.fetchNextPickupDate())
+        
+        
+        self.tableView.reloadData()
         
     }
     override func didReceiveMemoryWarning() {
@@ -72,7 +77,7 @@ class ServicesTableViewController: UITableViewController {
             cell.datedescription.isHidden = false
             
             cell.datedescription.text = "Next pick up date"
-            cell.date.text = self.fetchNextPickupDate()
+            cell.date.text = self.pickupdate
             
         }
         else{
@@ -102,13 +107,16 @@ class ServicesTableViewController: UITableViewController {
         
         
     }
-    
+    /*
     func fetchNextPickupDate()->String {
         
         var returndate: String = ""
         let userID = Auth.auth().currentUser?.uid
-        self.ref.child("users").child(userID!).observe(.childAdded, with: { snapshot in
+        let usernDislplayname = Auth.auth().currentUser?.displayName
+        
+        self.ref.child("users").child(userID!).observe(.value, with: { snapshot in
             
+            print(snapshot.value as Any)
             if let value = snapshot.value as? NSDictionary {
                 
                 print (value)
@@ -121,7 +129,36 @@ class ServicesTableViewController: UITableViewController {
         })
         return returndate
     }
+    */
     
+    func fetchNextPickupDate()->String {
+        
+        var returndate: String = "BILABILA"
+        let userID = Auth.auth().currentUser?.uid
+        let usernDislplayname = Auth.auth().currentUser?.displayName
+        
+        let titleRef = self.ref.child("users")
+        titleRef.queryOrdered(byChild: userID!).observe(.childAdded, with: { snapshot in
+            
+            print(snapshot.value as Any)
+            if let value = snapshot.value as? NSDictionary {
+                
+                print (value)
+                if usernDislplayname == (value["name"] as! String){
+                    print("Date: " + (value["nextPickupDate"] as! String))
+                    
+                    returndate = (value["nextPickupDate"] as! String)
+                    self.pickupdate = (value["nextPickupDate"] as! String)
+                    
+                }
+                
+                
+            }
+            
+        })
+        return returndate
+    }
+
     
     
 

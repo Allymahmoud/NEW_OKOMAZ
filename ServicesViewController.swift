@@ -33,18 +33,22 @@ class ServicesViewController: UIViewController {
     
     @IBAction func datePickerAction(_ sender: Any) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        dateFormatter.dateFormat = "dd-MM-yyyy"
         strDate = dateFormatter.string(from: myDatePicker.date)
         self.selectedDate.text = strDate
     }
 
     @IBAction func AddingDate(_ sender: Any) {
-        self.setUserValueString(key: "nextPickupDate", value: self.strDate)
-        
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ServiceList")
-        self.navigationController?.pushViewController(vc!, animated: true)
-        //self.dismiss(animated: true, completion: nil)
-        
+        if strDate != nil{
+            self.setUserValueString(key: "nextPickupDate", value: self.strDate)
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ServiceList")
+            self.navigationController?.pushViewController(vc!, animated: true)
+            //self.dismiss(animated: true, completion: nil)
+            
+
+            
+        }
         
         
         

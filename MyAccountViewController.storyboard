@@ -681,7 +681,30 @@
                             <constraint firstItem="XdH-vB-MW8" firstAttribute="bottom" secondItem="zcg-WD-UWR" secondAttribute="bottom" id="zKz-Zd-IiO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="bjp-Of-YDn"/>
+                    <navigationItem key="navigationItem" id="bjp-Of-YDn">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Hu4-QD-c2O">
+                            <connections>
+                                <action selector="cancel:" destination="EmT-k2-bBu" id="xR0-tw-PcB"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Akg-xI-RKR">
+                            <connections>
+                                <action selector="save:" destination="EmT-k2-bBu" id="xFW-Pc-F84"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="clientCountry" destination="llk-15-cLS" id="bXC-mU-uzU"/>
+                        <outlet property="clientHouse" destination="Hjf-c2-AaX" id="4hT-wc-4gs"/>
+                        <outlet property="clientName" destination="rRl-1h-qkw" id="Me4-28-aq3"/>
+                        <outlet property="clientPhone" destination="ljg-67-bmi" id="sf4-Y3-G9f"/>
+                        <outlet property="clientPhone1" destination="8oK-cm-oL5" id="y7I-1X-e59"/>
+                        <outlet property="clientPhone2" destination="zcg-WD-UWR" id="0aI-yD-iMw"/>
+                        <outlet property="clientPhone3" destination="KKp-lS-xBE" id="lnd-Qq-7NF"/>
+                        <outlet property="clientPhone4" destination="h5Y-v3-ek5" id="xAD-P2-i4S"/>
+                        <outlet property="clientRegion" destination="U12-1c-fRN" id="xct-AM-nzf"/>
+                        <outlet property="clientStreet" destination="q6I-9A-njN" id="Lt3-Ft-OnM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4f-Ze-lTQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
