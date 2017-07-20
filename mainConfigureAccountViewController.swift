@@ -11,6 +11,11 @@ import UIKit
 class mainConfigureAccountViewController: UIViewController {
     
     var clientInfo: Client?
+    
+    
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

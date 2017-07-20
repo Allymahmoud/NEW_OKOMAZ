@@ -134,7 +134,10 @@ class MyAccountViewController: UIViewController {
         self.clientProfilePicture.layer.cornerRadius = clientProfilePicture.frame.size.width/2
         self.clientProfilePicture.clipsToBounds = true
         
+        self.clientName.layer.cornerRadius = self.clientName.frame.size.width/12
+        self.clientName.clipsToBounds = true
         
+        /*
         self.addressTextField.layer.cornerRadius = self.addressTextField.frame.size.width/21
         self.addressTextField.clipsToBounds = true
         
@@ -142,8 +145,7 @@ class MyAccountViewController: UIViewController {
         self.PickupInfoTextField.clipsToBounds = true
         
         
-        self.clientName.layer.cornerRadius = self.clientName.frame.size.width/12
-        self.clientName.clipsToBounds = true
+        
         
         self.Phone.layer.cornerRadius = self.Phone.frame.size.width/12
         self.Phone.clipsToBounds = true
@@ -187,6 +189,7 @@ class MyAccountViewController: UIViewController {
         
         self.StaticRole.layer.cornerRadius = self.StaticRole.frame.size.width/6
         self.StaticRole.clipsToBounds = true
+        */
     }
     
     func updateClientInfo(){

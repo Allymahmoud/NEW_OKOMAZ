@@ -86,6 +86,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="Log in">
+                                    <color key="titleColor" red="0.18181020140000001" green="0.14311889699999999" blue="0.064935011949999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -106,7 +107,7 @@
                                     <constraint firstAttribute="width" constant="90" id="eL5-pe-YM8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.34981943069999999" green="0.34981943069999999" blue="0.34981943069999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.18181020142538851" green="0.14311889696344912" blue="0.064935011947536786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxF-T5-emm">
@@ -119,7 +120,7 @@
                                             <constraint firstAttribute="width" constant="198.5" id="F1V-hg-K55"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.18181020140000001" green="0.14311889699999999" blue="0.064935011949999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCG-aW-1wo">
@@ -129,7 +130,9 @@
                                             <constraint firstAttribute="width" constant="54" id="pS3-Tj-S6S"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                        <state key="normal" title="Sign up"/>
+                                        <state key="normal" title="Sign up">
+                                            <color key="titleColor" red="0.18181020140000001" green="0.14311889699999999" blue="0.064935011949999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="SignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Lu-1y-cRW"/>
                                         </connections>
@@ -141,7 +144,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.55841466890000002" green="0.79836899039999998" blue="0.70300974220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.1948062357" green="0.4349780822" blue="0.54594397670000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lcs-1F-nlq" firstAttribute="centerX" secondItem="aA9-TO-1Op" secondAttribute="centerX" id="7bi-k5-q8E"/>
                             <constraint firstItem="eEc-aO-WIb" firstAttribute="top" secondItem="4Se-q2-1OP" secondAttribute="bottom" constant="27" id="8Q2-Yr-zVe"/>
