@@ -10,6 +10,7 @@
 		13B1EFE21F1F524B00948CC6 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1EFE11F1F524B00948CC6 /* Channel.swift */; };
 		13B1EFE41F1F525300948CC6 /* CreateChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1EFE31F1F525300948CC6 /* CreateChannelCell.swift */; };
 		13B1EFE81F20DBB700948CC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B1EFE71F20DBB700948CC6 /* GoogleService-Info.plist */; };
+		13B1EFEA1F20F70200948CC6 /* ReportMissedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1EFE91F20F70200948CC6 /* ReportMissedViewController.swift */; };
 		A00324DE1F1D102B00930E02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00324DD1F1D102B00930E02 /* AppDelegate.swift */; };
 		A00324E01F1D102B00930E02 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00324DF1F1D102B00930E02 /* SignInViewController.swift */; };
 		A00324E31F1D102B00930E02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A00324E11F1D102B00930E02 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		13B1EFE11F1F524B00948CC6 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		13B1EFE31F1F525300948CC6 /* CreateChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannelCell.swift; sourceTree = "<group>"; };
 		13B1EFE71F20DBB700948CC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		13B1EFE91F20F70200948CC6 /* ReportMissedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportMissedViewController.swift; sourceTree = "<group>"; };
 		4024B1413B0E41FC4335590A /* Pods_NEW_OKOMAZ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NEW_OKOMAZ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00324DA1F1D102B00930E02 /* NEW_OKOMAZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEW_OKOMAZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00324DD1F1D102B00930E02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = NEW_OKOMAZ/AppDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				A00324FF1F1D1DFF00930E02 /* ServicesViewController.storyboard */,
+				13B1EFE91F20F70200948CC6 /* ReportMissedViewController.swift */,
 				A00325011F1D1E1500930E02 /* ServicesViewController.swift */,
 				A003250F1F1D201800930E02 /* ServicesTableViewController.swift */,
 				A003D6931F1ECB280011B3C4 /* ServicesTableViewCell.swift */,
@@ -334,6 +337,7 @@
 				A00325021F1D1E1500930E02 /* ServicesViewController.swift in Sources */,
 				A00325041F1D1E2800930E02 /* AuthenticationViewController.swift in Sources */,
 				A00324FA1F1D137400930E02 /* SignUpViewController.swift in Sources */,
+				13B1EFEA1F20F70200948CC6 /* ReportMissedViewController.swift in Sources */,
 				A00325081F1D1EFB00930E02 /* ChatPortViewController.swift in Sources */,
 				13B1EFE21F1F524B00948CC6 /* Channel.swift in Sources */,
 				A003D6661F1E148A0011B3C4 /* memberConfigureAccountViewController.swift in Sources */,
