@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13B1EFE01F1F513300948CC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B1EFDF1F1F513300948CC6 /* GoogleService-Info.plist */; };
 		13B1EFE21F1F524B00948CC6 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1EFE11F1F524B00948CC6 /* Channel.swift */; };
 		13B1EFE41F1F525300948CC6 /* CreateChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B1EFE31F1F525300948CC6 /* CreateChannelCell.swift */; };
+		13B1EFE81F20DBB700948CC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B1EFE71F20DBB700948CC6 /* GoogleService-Info.plist */; };
 		A00324DE1F1D102B00930E02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00324DD1F1D102B00930E02 /* AppDelegate.swift */; };
 		A00324E01F1D102B00930E02 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00324DF1F1D102B00930E02 /* SignInViewController.swift */; };
 		A00324E31F1D102B00930E02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A00324E11F1D102B00930E02 /* Main.storyboard */; };
@@ -37,9 +37,9 @@
 
 /* Begin PBXFileReference section */
 		0C6C5CB25B4AE4C8906B8239 /* Pods-NEW_OKOMAZ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEW_OKOMAZ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEW_OKOMAZ/Pods-NEW_OKOMAZ.debug.xcconfig"; sourceTree = "<group>"; };
-		13B1EFDF1F1F513300948CC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		13B1EFE11F1F524B00948CC6 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		13B1EFE31F1F525300948CC6 /* CreateChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannelCell.swift; sourceTree = "<group>"; };
+		13B1EFE71F20DBB700948CC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4024B1413B0E41FC4335590A /* Pods_NEW_OKOMAZ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NEW_OKOMAZ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00324DA1F1D102B00930E02 /* NEW_OKOMAZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NEW_OKOMAZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00324DD1F1D102B00930E02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = NEW_OKOMAZ/AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 				A00324DD1F1D102B00930E02 /* AppDelegate.swift */,
 				A00324E41F1D102B00930E02 /* Assets.xcassets */,
 				A00324E61F1D102B00930E02 /* LaunchScreen.storyboard */,
-				13B1EFDF1F1F513300948CC6 /* GoogleService-Info.plist */,
+				13B1EFE71F20DBB700948CC6 /* GoogleService-Info.plist */,
 				A00324E91F1D102B00930E02 /* Info.plist */,
 				A00324EF1F1D107D00930E02 /* SignIn */,
 				A00324DC1F1D102B00930E02 /* SignUp */,
@@ -267,7 +267,7 @@
 				A00325061F1D1E3800930E02 /* AuthenticationViewController.storyboard in Resources */,
 				A00325001F1D1DFF00930E02 /* ServicesViewController.storyboard in Resources */,
 				A00324E31F1D102B00930E02 /* Main.storyboard in Resources */,
-				13B1EFE01F1F513300948CC6 /* GoogleService-Info.plist in Resources */,
+				13B1EFE81F20DBB700948CC6 /* GoogleService-Info.plist in Resources */,
 				A003250E1F1D1FBF00930E02 /* SettingsViewController.storyboard in Resources */,
 				A00324FE1F1D1DA900930E02 /* MyAccountViewController.storyboard in Resources */,
 			);

@@ -7,11 +7,21 @@
 //
 
 import UIKit
+import Firebase
 
 class ServicesViewController: UIViewController {
-
+    
+    @IBOutlet weak var selectedDate: UILabel!
+    @IBOutlet weak var myDatePicker: UIDatePicker!
+    
+    var ref: DatabaseReference!
+    var strDate: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        ref = Database.database().reference(fromURL: "https://okomaz-b3136.firebaseio.com/")
 
         // Do any additional setup after loading the view.
     }
@@ -21,7 +31,31 @@ class ServicesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func datePickerAction(_ sender: Any) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        strDate = dateFormatter.string(from: myDatePicker.date)
+        self.selectedDate.text = strDate
+    }
 
+    @IBAction func AddingDate(_ sender: Any) {
+        self.setUserValueString(key: "nextPickupDate", value: self.strDate)
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ServiceList")
+        self.navigationController?.pushViewController(vc!, animated: true)
+        //self.dismiss(animated: true, completion: nil)
+        
+        
+        
+        
+        
+    }
+    
+    func setUserValueString(key:String, value: String){
+        let user = Auth.auth().currentUser
+        self.ref.child("users").child((user?.uid)!).child(key).setValue(value)
+        
+    }
     /*
     // MARK: - Navigation
 
