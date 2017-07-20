@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class MyAccountViewController: UIViewController {
     
-    var clientInfo: Client!
+    var clientInfo: Client = Client(name: "Ally", email: "@okomaz.co.tz", password: "okomaz1")
     
     
+    
+    var ref: DatabaseReference!
     
     @IBOutlet weak var clientName: UILabel!
     @IBOutlet weak var Phone: UILabel!
@@ -42,25 +46,39 @@ class MyAccountViewController: UIViewController {
     
     @IBOutlet weak var imageEditButton: UIButton!
     
-    let accountEditButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(editAccountinfoButton))
+    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ref = Database.database().reference(fromURL: "https://okomaz-b3136.firebaseio.com/")
+        
         configureUI()
         
+        let accountEditButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.compose, target: self, action: #selector(editAccountinfoButton))
         self.navigationController?.navigationBar.topItem?.title = "My Account"
-        self.navigationController?.navigationBar.topItem?.leftBarButtonItem = accountEditButton
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = accountEditButton
         
-        print("name: " + clientInfo.name!)
-        print("email: " + clientInfo.phoneNumber!)
-        print("password: " + clientInfo.password!)
-        print("country: " + clientInfo.country!)
+                
+        
+        self.modifyButtonUI(Button: self.configureAccountMain)
+        self.modifyButtonUI(Button: self.configureAccountMember)
+
+       
+        
+        
+       
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         self.updateClientInfo()
+        
+    }
+    
 
     
     
@@ -84,6 +102,8 @@ class MyAccountViewController: UIViewController {
                 
                 
                 configureAccountViewController.clientInfo = self.clientInfo
+                
+                
             }
             
         }
@@ -147,16 +167,93 @@ class MyAccountViewController: UIViewController {
         self.Role.clipsToBounds = true
         
         
-        self.StaticPhoneField.layer.cornerRadius = self.StaticPhoneField.frame.size.width/8
+        self.StaticPhoneField.layer.cornerRadius = self.StaticPhoneField.frame.size.width/6
         self.StaticPhoneField.clipsToBounds = true
         
+        self.StaticStreetField.layer.cornerRadius = self.StaticStreetField.frame.size.width/6
+        self.StaticStreetField.clipsToBounds = true
+        
+        self.StaticHouseField.layer.cornerRadius = self.StaticHouseField.frame.size.width/6
+        self.StaticHouseField.clipsToBounds = true
+        
+        self.StaticCountryField.layer.cornerRadius = self.StaticCountryField.frame.size.width/6
+        self.StaticCountryField.clipsToBounds = true
+        
+        self.StaticRegionField.layer.cornerRadius = self.StaticRegionField.frame.size.width/6
+        self.StaticRegionField.clipsToBounds = true
+        
+        self.StaticNextPickupField.layer.cornerRadius = self.StaticNextPickupField.frame.size.width/6
+        self.StaticNextPickupField.clipsToBounds = true
+        
+        self.StaticRole.layer.cornerRadius = self.StaticRole.frame.size.width/6
+        self.StaticRole.clipsToBounds = true
     }
     
     func updateClientInfo(){
+        print("User displayname :" + (Auth.auth().currentUser?.displayName!)! )
+        let userID = Auth.auth().currentUser?.uid
+        let titleRef = self.ref.child("users")
+        titleRef.queryOrdered(byChild: userID!).observe(.childAdded, with: { snapshot in
+            
+            if let value = snapshot.value as? NSDictionary {
+                
+                print(value)
+                print(value["role"] as! String)
+                
+                self.clientInfo.name = (value["name"] as! String)
+                self.clientInfo.password = value["password"] as? String ?? ""
+                self.clientInfo.email = value["email"] as? String ?? ""
+                self.clientInfo.phoneNumber = value["phoneNumber"] as? String ?? ""
+                
+                self.clientInfo.houseNumber = value["houseNumber"] as? String ?? ""
+                self.clientInfo.street = value["street"] as? String ?? ""
+                self.clientInfo.region = value["region"] as? String ?? ""
+                self.clientInfo.country = value["country"] as? String ?? ""
+                
+                self.clientInfo.uniqueDustbinSetCode = value["uniqueDustbinSetCode"] as? String ?? ""
+                self.clientInfo.dateJoined = value["dateJoined"] as? String ?? ""
+                self.clientInfo.lastContactTime = value["lastContactTime"] as? String ?? ""
+                self.clientInfo.nextPickupDate = value["nextPickupDate"] as? String ?? ""
+                self.clientInfo.pickUpStatus = value["pickUpStatus"] as? Bool
+                
+                self.clientInfo.phoneNumber_1 = value["phoneNumber_1"] as? String ?? ""
+                self.clientInfo.phoneNumber_2 = value["phoneNumber_2"] as? String ?? ""
+                self.clientInfo.phoneNumber_3 = value["phoneNumber_3"] as? String ?? ""
+                self.clientInfo.phoneNumber_4 = value["phoneNumber_4"] as? String ?? ""
+                
+                self.clientInfo.role = value["role"] as? String ?? ""
+                self.clientInfo.title = value["title"] as? String ?? ""
+                self.clientInfo.Latitude = value["Latitude"] as? Double
+                self.clientInfo.Longitude = value["Longitude"] as? Double
+                self.clientInfo.PhotoUrl = value["PhotoUrl"] as? String ?? ""
+                
+                
+                if self.clientInfo.houseNumber == "" {
+                    self.disableUI(disable: true)
+                    
+                }
+                else{
+                    self.disableUI(disable: false)
+                    
+                }
+                
+                
+                //display the updated info
+                self.displayClientInfo()
+                
+            }
+            else{
+                print("ERROR__MYACCOUNTVIEWCONTROLLER- found the dictonary empty")
+            }
+        })
         
-        if clientInfo.phoneNumber != nil{
+    }
+    
+    func displayClientInfo(){
+        
+ 
             self.clientName.text = self.clientInfo.name
-            self.Phone.text = self.clientInfo.phoneNumber
+            self.Phone.text = self.clientInfo.email
             self.Country.text = self.clientInfo.country
             self.Role.text = self.clientInfo.role
             self.House.text = self.clientInfo.houseNumber
@@ -166,7 +263,7 @@ class MyAccountViewController: UIViewController {
             self.nextPickupInfo.text = self.clientInfo.nextPickupDate
             
             
-        }
+   
         
     }
     
@@ -176,6 +273,31 @@ class MyAccountViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func modifyButtonUI(Button: UIButton){
+        Button.setTitleColor(UIColor.black, for: UIControlState.normal)
+        Button.layer.borderColor = UIColor.black.cgColor
+        Button.layer.cornerRadius = 5
+        Button.layer.borderWidth = 1
+        Button.titleLabel!.font = UIFont(name: "Avenir", size: 13)
+        
+        
+    }
+
+    @IBAction func configureAccountMainAction(_ sender: Any) {
+        self.clientInfo.role = "Household Main Contact"
+        
+        self.performSegue(withIdentifier: "navToAccountConfiguration", sender: sender)
+        
+        
+    }
+    
+    
+    @IBAction func configureAccountMemberAction(_ sender: Any) {
+        self.clientInfo.role = "Household Member"
+        
+        self.performSegue(withIdentifier: "navToAccountConfigurationMember", sender: sender)
+        
+    }
     
     func disableUI(disable: Bool){
         var alpha:CGFloat = 1.0; // if enabled alpha is 1
@@ -183,15 +305,22 @@ class MyAccountViewController: UIViewController {
             alpha = 0.5; //add alpha to get disabled look
             
             self.imageEditButton.isEnabled = false;
-            self.accountEditButton.isEnabled = false;
+            //self.accountEditButton.isEnabled = false;
             
             
             self.Phone.alpha = alpha
+            self.StaticPhoneField.alpha = alpha
+            
             self.clientName.alpha = alpha
-            self.Phone.alpha = alpha
             self.clientProfilePicture.alpha = alpha
             self.addressTextField.alpha = alpha
             self.PickupInfoTextField.alpha = alpha
+            
+            self.StaticNextPickupField.alpha = alpha
+            self.nextPickupInfo.alpha = alpha
+            
+            self.StaticRole.alpha = alpha
+            self.Role.alpha = alpha
             
             self.configureAccountMain.isHidden = false
             self.configureAccountMain.isEnabled = true
@@ -199,12 +328,17 @@ class MyAccountViewController: UIViewController {
             self.configureAccountMember.isEnabled = true
             
             
-            self.StaticRole.isHidden = disable
+            //self.StaticRole.isHidden = disable
             self.StaticStreetField.isHidden = disable
             self.StaticHouseField.isHidden = disable
             self.StaticRegionField.isHidden = disable
-            self.StaticNextPickupField.isHidden = disable
+            //self.StaticNextPickupField.isHidden = disable
             self.StaticCountryField.isHidden = disable
+            
+            self.Country.isHidden = disable
+            self.House.isHidden = disable
+            self.Street.isHidden = disable
+            self.Region.isHidden = disable
             
             
             
@@ -214,20 +348,41 @@ class MyAccountViewController: UIViewController {
             alpha = 1;
             
             self.Phone.alpha = alpha
+            self.StaticPhoneField.alpha = alpha
+            
             self.clientName.alpha = alpha
-            self.Phone.alpha = alpha
             self.clientProfilePicture.alpha = alpha
             self.addressTextField.alpha = alpha
             self.PickupInfoTextField.alpha = alpha
             
+            self.StaticNextPickupField.alpha = alpha
+            self.nextPickupInfo.alpha = alpha
+            
+            self.StaticRole.alpha = alpha
+            self.Role.alpha = alpha
+            
             
             self.imageEditButton.isEnabled = true;
-            self.accountEditButton.isEnabled = true;
+            //self.accountEditButton.isEnabled = true;
             
             self.configureAccountMain.isHidden = true
             self.configureAccountMain.isEnabled = false
             self.configureAccountMember.isHidden = true
             self.configureAccountMember.isEnabled = false
+            
+            
+            //self.StaticRole.isHidden = disable
+            self.StaticStreetField.isHidden = disable
+            self.StaticHouseField.isHidden = disable
+            self.StaticRegionField.isHidden = disable
+            //self.StaticNextPickupField.isHidden = disable
+            self.StaticCountryField.isHidden = disable
+            
+            
+            self.Country.isHidden = disable
+            self.House.isHidden = disable
+            self.Street.isHidden = disable
+            self.Region.isHidden = disable
             
         }
         

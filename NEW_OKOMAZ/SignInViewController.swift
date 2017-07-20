@@ -14,7 +14,7 @@ class SignInViewController: UIViewController {
     
     var returningClientInfo: Client?
     
-    
+   
     var ref: DatabaseReference!
 
 
@@ -149,6 +149,7 @@ class SignInViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if (segue.identifier == "navFromLogin"){
             
+            /*
             let MyAccountTabViewController = segue.destination as! UITabBarController
             let mainViewController = MyAccountTabViewController.viewControllers?[0] as! UINavigationController
             
@@ -168,6 +169,7 @@ class SignInViewController: UIViewController {
             
             
             myAccountViewController.clientInfo = self.returningClientInfo
+            */
         }
     }
 

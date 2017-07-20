@@ -84,6 +84,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="DHO-ag-Mer"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="Log in">
                                     <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -109,24 +110,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxF-T5-emm">
-                                <rect key="frame" x="74" y="567" width="227" height="30"/>
+                                <rect key="frame" x="61.5" y="567" width="252.5" height="30"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dont have an account?  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dD-Dh-HcS">
-                                        <rect key="frame" x="0.0" y="0.0" width="175" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?   " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dD-Dh-HcS">
+                                        <rect key="frame" x="0.0" y="0.0" width="198.5" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="6n3-JJ-S9B"/>
-                                            <constraint firstAttribute="width" constant="175" id="LIj-J2-D8j"/>
+                                            <constraint firstAttribute="width" constant="198.5" id="F1V-hg-K55"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCG-aW-1wo">
-                                        <rect key="frame" x="175" y="0.0" width="52" height="30"/>
+                                        <rect key="frame" x="198.5" y="0.0" width="54" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="cEw-0a-x6P"/>
-                                            <constraint firstAttribute="width" constant="52" id="s7v-Iy-SCl"/>
+                                            <constraint firstAttribute="width" constant="54" id="pS3-Tj-S6S"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="Sign up"/>
                                         <connections>
                                             <action selector="SignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Lu-1y-cRW"/>
@@ -135,7 +137,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="27a-wP-bRJ"/>
-                                    <constraint firstAttribute="width" constant="227" id="fZf-Lu-hcZ"/>
+                                    <constraint firstAttribute="width" constant="252.5" id="r2e-EM-LIV"/>
                                 </constraints>
                             </stackView>
                         </subviews>
