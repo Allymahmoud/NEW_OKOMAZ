@@ -101,6 +101,13 @@ class ServicesTableViewController: UITableViewController {
             
         }
         
+        if indexPath.row == 1{
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Missed")
+            self.navigationController?.pushViewController(vc!, animated: true)
+            
+        }
+        
+        
         
     
  
