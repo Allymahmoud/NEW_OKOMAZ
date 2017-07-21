@@ -96,14 +96,22 @@ class ServicesTableViewController: UITableViewController {
         indexPath: IndexPath){
         
         if indexPath.row == 0{
+            
+            self.performSegue(withIdentifier: "navTopickUp", sender: nil)
+            /*
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "PickUp")
             self.navigationController?.pushViewController(vc!, animated: true)
+            */
             
         }
         
         if indexPath.row == 1{
+            
+         self.performSegue(withIdentifier: "navToReportpickUp", sender: nil)
+            /*
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "Missed")
             self.navigationController?.pushViewController(vc!, animated: true)
+            */
             
         }
         

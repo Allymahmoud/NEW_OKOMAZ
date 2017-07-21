@@ -42,8 +42,9 @@ class ServicesViewController: UIViewController {
         if strDate != nil{
             self.setUserValueString(key: "nextPickupDate", value: self.strDate)
             
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ServiceList")
-            self.navigationController?.pushViewController(vc!, animated: true)
+            self.dismiss(animated: true, completion: nil)
+//            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ServiceList")
+//            self.navigationController?.pushViewController(vc!, animated: true)
             //self.dismiss(animated: true, completion: nil)
             
 
@@ -60,6 +61,14 @@ class ServicesViewController: UIViewController {
         self.ref.child("users").child((user?.uid)!).child(key).setValue(value)
         
     }
+    
+    
+    
+    @IBAction func Cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     /*
     // MARK: - Navigation
 

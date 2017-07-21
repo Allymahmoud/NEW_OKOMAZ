@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     var clientInfo: Client!
     
@@ -175,6 +175,19 @@ class SignUpViewController: UIViewController {
         self.ref.child("users").child((user?.uid)!).child("PhotoUrl").setValue(self.clientInfo.PhotoUrl)
     }
     
+    
+    //function to dismiss the keyboard when done editing
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        clientName.resignFirstResponder()
+        clientPassword.resignFirstResponder()
+        
+        return true
+    }
+    
+    //function to dissmiss the keyboard when a part of the screen is touched
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
     /*
     // MARK: - Navigation

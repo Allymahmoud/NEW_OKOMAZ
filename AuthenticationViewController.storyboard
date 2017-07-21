@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Authentication View Controller-->
         <scene sceneID="d5O-24-n1F">
             <objects>
-                <viewController id="l2g-oC-DiZ" sceneMemberID="viewController">
+                <viewController id="l2g-oC-DiZ" customClass="AuthenticationViewController" customModule="NEW_OKOMAZ" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6zL-g0-Sbr"/>
                         <viewControllerLayoutGuide type="bottom" id="B05-KJ-y9t"/>
@@ -20,7 +20,7 @@
                     <view key="view" contentMode="scaleToFill" id="TSo-f2-pwr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.19646415110000001" green="0.43368232249999999" blue="0.54632931949999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mj6-rM-qpr" userLabel="First Responder" sceneMemberID="firstResponder"/>

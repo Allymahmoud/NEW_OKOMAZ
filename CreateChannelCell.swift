@@ -22,9 +22,11 @@
 
 import UIKit
 
-class CreateChannelCell: UITableViewCell {
+class CreateChannelCell: UITableViewCell, UITextFieldDelegate {
 
   @IBOutlet weak var newChannelNameField: UITextField!
   @IBOutlet weak var createChannelButton: UIButton!
+
+
   
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReportMissedViewController: UIViewController {
+class ReportMissedViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var PickedDate: UILabel!
     @IBOutlet weak var Details: UITextView!
@@ -33,19 +33,38 @@ class ReportMissedViewController: UIViewController {
         strDetails = ""
         strDetails = Details.text
         
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ServiceList")
-        self.navigationController?.pushViewController(vc!, animated: true)
+        self.dismiss(animated: true, completion: nil)
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ServiceList")
+//        self.navigationController?.pushViewController(vc!, animated: true)
         
         
     }
     
     @IBAction func PickerDate(_ sender: Any) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        dateFormatter.dateFormat = "dd-MM-yyyy"
         strDate = dateFormatter.string(from: PickerDate.date)
         self.PickedDate.text = strDate
     }
-
+    
+    
+    
+    @IBAction func Cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    //function to dismiss the keyboard when done editing
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        Details.resignFirstResponder()
+        
+        return true
+    }
+    
+    //function to dissmiss the keyboard when a part of the screen is touched
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     /*
     // MARK: - Navigation
 

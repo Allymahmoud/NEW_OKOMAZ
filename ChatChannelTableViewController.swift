@@ -15,7 +15,7 @@ enum Section: Int {
     case currentChannelsSection
 }
 
-class ChatChannelTableViewController: UITableViewController {
+class ChatChannelTableViewController: UITableViewController, UITextFieldDelegate {
     
     var senderDisplayName: String? // 1
     var newChannelTextField: UITextField? // 2
@@ -102,6 +102,7 @@ class ChatChannelTableViewController: UITableViewController {
             let channel = channels[(indexPath as NSIndexPath).row]
             self.performSegue(withIdentifier: "ShowChannel", sender: channel)
         }
+         view.endEditing(true)
     }
     
  
@@ -131,6 +132,10 @@ class ChatChannelTableViewController: UITableViewController {
             chatVc.channelRef = channelRef.child(channel.id)
         }
     }
+    
+
+    
+    
 
     /*
     // Override to support conditional editing of the table view.

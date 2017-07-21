@@ -43,7 +43,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_email" translatesAutoresizingMaskIntoConstraints="NO" id="zKN-ou-LiE">
                                         <rect key="frame" x="13" y="72" width="31" height="30"/>
@@ -148,7 +148,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.55841466890000002" green="0.79836899039999998" blue="0.70300974220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.19646415114402771" green="0.43368232250213623" blue="0.5463293194770813" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qNW-Zl-KqJ" firstAttribute="top" secondItem="Xe2-eI-uq8" secondAttribute="bottom" constant="38" id="1GM-vI-fGs"/>
                             <constraint firstItem="Xe2-eI-uq8" firstAttribute="top" secondItem="9tT-uz-ZFP" secondAttribute="bottom" constant="-7" id="3cC-ED-fK3"/>
@@ -165,7 +165,7 @@
                         <outlet property="clientName" destination="01M-hc-bYw" id="6G6-1D-ylD"/>
                         <outlet property="clientPassword" destination="ZIU-Ks-uX5" id="Y5l-lv-cxE"/>
                         <outlet property="clientVerifyPassword" destination="XgM-Lp-Gee" id="OGt-Tb-8a0"/>
-                        <segue destination="Mhx-qM-2Sh" kind="show" identifier="navFromSignUp" id="0g5-1z-qH2"/>
+                        <segue destination="NKE-yi-M0j" kind="show" identifier="navFromSignUp" id="EI7-dj-BPd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwY-z9-CWt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -181,24 +181,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iNk-Zh-UKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1240.8" y="-207.34632683658174"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="L61-Gk-ZYp">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mhx-qM-2Sh" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z38-3u-tJm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="NKE-yi-M0j" kind="relationship" relationship="rootViewController" id="fhs-2p-rPH"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C4N-A6-hB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="301.60000000000002" y="-207.34632683658174"/>
         </scene>
     </scenes>
     <resources>

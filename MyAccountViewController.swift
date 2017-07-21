@@ -8,14 +8,15 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
+import Photos
 
-class MyAccountViewController: UIViewController {
+
+class MyAccountViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var clientInfo: Client = Client(name: "Ally", email: "@okomaz.co.tz", password: "okomaz1")
     
     
-    
+    var storageRef: StorageReference?
     var ref: DatabaseReference!
     
     @IBOutlet weak var clientName: UILabel!
@@ -55,6 +56,8 @@ class MyAccountViewController: UIViewController {
         
         ref = Database.database().reference(fromURL: "https://okomaz-b3136.firebaseio.com/")
         
+        storageRef = Storage.storage().reference()
+        
         configureUI()
         
         let accountEditButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.compose, target: self, action: #selector(editAccountinfoButton))
@@ -85,7 +88,7 @@ class MyAccountViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if clientInfo.role == "Main Household Contact" {
+        //if clientInfo.role == "Main Household Contact" {
             if segue.identifier == "navToAccountConfiguration" {
                 let AccountNavigationViewController = segue.destination as! UINavigationController
                 let configureAccountViewController = AccountNavigationViewController.topViewController as! mainConfigureAccountViewController
@@ -94,8 +97,8 @@ class MyAccountViewController: UIViewController {
                 configureAccountViewController.clientInfo = self.clientInfo
             }
             
-        }
-        else{
+        //}
+        //else{
             if segue.identifier == "navToAccountConfigurationMember" {
                 let AccountNavigationViewController = segue.destination as! UINavigationController
                 let configureAccountViewController = AccountNavigationViewController.topViewController as! memberConfigureAccountViewController
@@ -106,7 +109,7 @@ class MyAccountViewController: UIViewController {
                 
             }
             
-        }
+        //}
     }
     
     
@@ -194,55 +197,62 @@ class MyAccountViewController: UIViewController {
     
     func updateClientInfo(){
         print("User displayname :" + (Auth.auth().currentUser?.displayName!)! )
+        let useremail = Auth.auth().currentUser?.email
         let userID = Auth.auth().currentUser?.uid
         let titleRef = self.ref.child("users")
         titleRef.queryOrdered(byChild: userID!).observe(.childAdded, with: { snapshot in
             
             if let value = snapshot.value as? NSDictionary {
                 
-                print(value)
+                //print(value)
                 print(value["role"] as! String)
                 
-                self.clientInfo.name = (value["name"] as! String)
-                self.clientInfo.password = value["password"] as? String ?? ""
-                self.clientInfo.email = value["email"] as? String ?? ""
-                self.clientInfo.phoneNumber = value["phoneNumber"] as? String ?? ""
-                
-                self.clientInfo.houseNumber = value["houseNumber"] as? String ?? ""
-                self.clientInfo.street = value["street"] as? String ?? ""
-                self.clientInfo.region = value["region"] as? String ?? ""
-                self.clientInfo.country = value["country"] as? String ?? ""
-                
-                self.clientInfo.uniqueDustbinSetCode = value["uniqueDustbinSetCode"] as? String ?? ""
-                self.clientInfo.dateJoined = value["dateJoined"] as? String ?? ""
-                self.clientInfo.lastContactTime = value["lastContactTime"] as? String ?? ""
-                self.clientInfo.nextPickupDate = value["nextPickupDate"] as? String ?? ""
-                self.clientInfo.pickUpStatus = value["pickUpStatus"] as? Bool
-                
-                self.clientInfo.phoneNumber_1 = value["phoneNumber_1"] as? String ?? ""
-                self.clientInfo.phoneNumber_2 = value["phoneNumber_2"] as? String ?? ""
-                self.clientInfo.phoneNumber_3 = value["phoneNumber_3"] as? String ?? ""
-                self.clientInfo.phoneNumber_4 = value["phoneNumber_4"] as? String ?? ""
-                
-                self.clientInfo.role = value["role"] as? String ?? ""
-                self.clientInfo.title = value["title"] as? String ?? ""
-                self.clientInfo.Latitude = value["Latitude"] as? Double
-                self.clientInfo.Longitude = value["Longitude"] as? Double
-                self.clientInfo.PhotoUrl = value["PhotoUrl"] as? String ?? ""
-                
-                
-                if self.clientInfo.houseNumber == "" {
-                    self.disableUI(disable: true)
+                if useremail == (value["email"] as! String){
+                    
+                    self.clientInfo.name = (value["name"] as! String)
+                    self.clientInfo.password = value["password"] as? String ?? ""
+                    self.clientInfo.email = value["email"] as? String ?? ""
+                    self.clientInfo.phoneNumber = value["phoneNumber"] as? String ?? ""
+                    
+                    self.clientInfo.houseNumber = value["houseNumber"] as? String ?? ""
+                    self.clientInfo.street = value["street"] as? String ?? ""
+                    self.clientInfo.region = value["region"] as? String ?? ""
+                    self.clientInfo.country = value["country"] as? String ?? ""
+                    
+                    self.clientInfo.uniqueDustbinSetCode = value["uniqueDustbinSetCode"] as? String ?? ""
+                    self.clientInfo.dateJoined = value["dateJoined"] as? String ?? ""
+                    self.clientInfo.lastContactTime = value["lastContactTime"] as? String ?? ""
+                    self.clientInfo.nextPickupDate = value["nextPickupDate"] as? String ?? ""
+                    self.clientInfo.pickUpStatus = value["pickUpStatus"] as? Bool
+                    
+                    self.clientInfo.phoneNumber_1 = value["phoneNumber_1"] as? String ?? ""
+                    self.clientInfo.phoneNumber_2 = value["phoneNumber_2"] as? String ?? ""
+                    self.clientInfo.phoneNumber_3 = value["phoneNumber_3"] as? String ?? ""
+                    self.clientInfo.phoneNumber_4 = value["phoneNumber_4"] as? String ?? ""
+                    
+                    self.clientInfo.role = value["role"] as? String ?? ""
+                    self.clientInfo.title = value["title"] as? String ?? ""
+                    self.clientInfo.Latitude = value["Latitude"] as? Double
+                    self.clientInfo.Longitude = value["Longitude"] as? Double
+                    self.clientInfo.PhotoUrl = value["PhotoUrl"] as? String ?? ""
+                    
+                    if self.clientInfo.houseNumber == "" {
+                        self.disableUI(disable: true)
+                        
+                    }
+                    else{
+                        self.disableUI(disable: false)
+                        
+                    }
+                    
+                    
+                    //display the updated info
+                    self.displayClientInfo()
                     
                 }
-                else{
-                    self.disableUI(disable: false)
-                    
-                }
                 
                 
-                //display the updated info
-                self.displayClientInfo()
+                
                 
             }
             else{
@@ -392,8 +402,98 @@ class MyAccountViewController: UIViewController {
         
         
     }
+    
 
-
+    @IBAction func editProfileImage(_ sender: Any) {
+        
+        let imagePickerController: UIImagePickerController = UIImagePickerController()
+        
+        imagePickerController.delegate = self
+        
+        
+        imagePickerController.sourceType = .photoLibrary
+        self.present(imagePickerController, animated: true, completion: nil)
+        
+        
+        
+    }
+    /*
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        
+        
+        
+        self.clientProfilePicture.image = selectedImage
+        
+       
+        
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+ */
    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        picker.dismiss(animated: true, completion:nil)
+        
+        if let photoReferenceUrl = info[UIImagePickerControllerReferenceURL] as? URL {
+            // Handle picking a Photo from the Photo Library
+            let assets = PHAsset.fetchAssets(withALAssetURLs: [photoReferenceUrl], options: nil)
+            let asset = assets.firstObject
+            
+            //if let key = sendPhotoMessage() {
+                asset?.requestContentEditingInput(with: nil, completionHandler: { (contentEditingInput, info) in
+                    let imageFileURL = contentEditingInput?.fullSizeImageURL
+                    
+                    if let uid = Auth.auth().currentUser?.uid {
+                        let path = "\(uid)/\(Int(Date.timeIntervalSinceReferenceDate * 1000))/\(photoReferenceUrl.lastPathComponent)"
+                        
+                        self.storageRef?.child(path).putFile(from: imageFileURL!, metadata: nil) { (metadata, error) in
+                            if let error = error {
+                                print("Error uploading photo: \(error.localizedDescription)")
+                                return
+                            }
+                            else{
+                                
+                                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                                changeRequest?.photoURL = imageFileURL
+                                changeRequest?.commitChanges { (error) in
+                                    if error == nil{
+                                        print("Successful uploaded image: " + path)
+                                        self.setUserValueString(key: "PhotoUrl", value: path)
+                                        
+                                    }
+                                    else{
+                                        print("Error uploading photo url: \(String(describing: error?.localizedDescription))")
+                                        
+                                    }
+                                }
+                                
+                            }
+                            
+                            //self.setImageURL((self.storageRef?.child((metadata?.path)!).description)!, forPhotoMessageWithKey: key)
+                        }
+                    }
+                })
+            //}
+        } else {
+            // Handle picking a Photo from the Camera - TODO
+        }
+        
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion:nil)
+    }
+    
+    //helper function to modify Bool data in the database
+    func setUserValueString(key:String, value: String){
+        let user = Auth.auth().currentUser
+        self.ref.child("users").child((user?.uid)!).child(key).setValue(value)
+        
+    }
+    
 
 }

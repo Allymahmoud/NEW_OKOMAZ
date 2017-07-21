@@ -68,6 +68,16 @@ class memberConfigureAccountViewController: UIViewController, UITextFieldDelegat
     
     private func uploadClientInfoToDatabase(){
         self.setUserValueString(key: "phoneNumber_1" , value: (self.clientInfo?.phoneNumber_1)!)
+        self.setUserValueString(key: "role" , value: "Household Member")
+        
+        if  self.clientInfo?.role != "Household Member"  {
+            print("YES")
+            self.setUserValueString(key: "role" , value: "Household Member")
+            
+        }
+        else{
+            print("NO" + "********" + (self.clientInfo?.role)! )
+        }
         //self.setUserValueString(key: "name" , value: (self.clientInfo?.name)!)
         //self.setUserValueString(key: "email" , value: (self.clientInfo?.email)!)
     }

@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, UITextFieldDelegate {
     
     var returningClientInfo: Client?
     
@@ -43,6 +43,19 @@ class SignInViewController: UIViewController {
         
         
         
+    }
+    
+    
+    //function to dismiss the keyboard when done editing
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        email.resignFirstResponder()
+        password.resignFirstResponder()
+        return true
+    }
+    
+    //function to dissmiss the keyboard when a part of the screen is touched
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     
